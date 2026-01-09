@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import { memo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Play, 
@@ -24,7 +24,6 @@ function PomodoroTimerComponent({ isExpanded, onToggle }: PomodoroTimerProps) {
   const { todos } = useTodos();
   const {
     timeRemaining,
-    totalTime,
     isRunning,
     isPaused,
     currentPhase,
@@ -33,7 +32,6 @@ function PomodoroTimerComponent({ isExpanded, onToggle }: PomodoroTimerProps) {
     startPomodoro,
     pausePomodoro,
     resumePomodoro,
-    stopPomodoro,
     skipPhase,
     resetPomodoro,
     formatTime,

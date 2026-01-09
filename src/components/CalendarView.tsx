@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ChevronLeft, 
@@ -39,7 +39,6 @@ interface CalendarDayProps {
 function CalendarDay({ date, todos, isCurrentMonth, isSelected, onClick }: CalendarDayProps) {
   const today = isToday(date);
   const hasTodos = todos.length > 0;
-  const hasOverdue = todos.some(t => t.status !== 'completed');
 
   return (
     <motion.div
@@ -83,9 +82,9 @@ function CalendarDay({ date, todos, isCurrentMonth, isSelected, onClick }: Calen
   );
 }
 
-function CalendarViewComponent({ onStartPomodoro }: CalendarViewProps) {
+function CalendarViewComponent({ onStartPomodoro: _onStartPomodoro }: CalendarViewProps) {
   const { setIsAddModalOpen, setEditingTodoId } = useApp();
-  const { todos, getFilteredTodos } = useTodos();
+  const { todos } = useTodos();
 
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);

@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState, useCallback } from 'react';
+import { memo, useMemo, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   ArrowUpDown, 
@@ -93,20 +93,6 @@ function ListViewComponent({ onStartPomodoro }: ListViewProps) {
     return base;
   }, [currentFilter, selectedCategory, categories]);
 
-  const handleSelectTodo = useCallback((id: string) => {
-    setSelectedTodos(prev => 
-      prev.includes(id) ? prev.filter(t => t !== id) : [...prev, id]
-    );
-  }, []);
-
-  const handleSelectAll = useCallback(() => {
-    if (selectedTodos.length === sortedTodos.length) {
-      setSelectedTodos([]);
-    } else {
-      setSelectedTodos(sortedTodos.map(t => t.id));
-    }
-  }, [selectedTodos.length, sortedTodos]);
-
   const handleBulkAction = useCallback((action: 'complete' | 'delete' | 'archive') => {
     switch (action) {
       case 'complete':
@@ -129,15 +115,6 @@ function ListViewComponent({ onStartPomodoro }: ListViewProps) {
     { value: 'createdAt', label: 'Created Date' },
     { value: 'alphabetical', label: 'Alphabetical' },
   ];
-
-  const handleReorder = (newOrder: Todo[]) => {
-    // Update order in state
-    const startIndex = sortedTodos.findIndex(t => t.id === newOrder[0]?.id);
-    const endIndex = sortedTodos.findIndex(t => t.id === newOrder[newOrder.length - 1]?.id);
-    if (startIndex !== -1 && endIndex !== -1 && startIndex !== endIndex) {
-      reorderTodos(startIndex, endIndex);
-    }
-  };
 
   return (
     <div className="list-view">

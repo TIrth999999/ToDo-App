@@ -61,7 +61,7 @@ function SortableTodo({ todo, onStartPomodoro }: SortableTodoProps) {
   );
 }
 
-function KanbanColumn({ status, title, color, todos, onStartPomodoro }: KanbanColumnProps) {
+function KanbanColumn({ status: _status, title, color, todos, onStartPomodoro }: KanbanColumnProps) {
   const { setIsAddModalOpen } = useApp();
   
   return (

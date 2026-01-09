@@ -75,12 +75,12 @@ function SidebarComponent({ isOpen }: SidebarProps) {
     open: { 
       width: 280, 
       opacity: 1,
-      transition: { duration: 0.3, ease: 'easeOut' }
+      transition: { duration: 0.3, ease: 'easeOut' as const }
     },
     closed: { 
       width: 0, 
       opacity: 0,
-      transition: { duration: 0.3, ease: 'easeIn' }
+      transition: { duration: 0.3, ease: 'easeIn' as const }
     },
   };
 

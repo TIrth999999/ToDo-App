@@ -10,7 +10,6 @@ import {
   Plus,
   Trash2,
   Repeat,
-  Bell,
   FileText,
   CheckSquare,
 } from 'lucide-react';
@@ -148,7 +147,7 @@ function TodoFormComponent({ isOpen, onClose, editTodoId }: TodoFormProps) {
       opacity: 1, 
       scale: 1, 
       y: 0,
-      transition: { type: 'spring', damping: 25, stiffness: 300 }
+      transition: { type: 'spring' as const, damping: 25, stiffness: 300 }
     },
     exit: { 
       opacity: 0, 

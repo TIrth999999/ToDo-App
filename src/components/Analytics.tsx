@@ -1,9 +1,8 @@
-import React, { memo, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { 
   TrendingUp, 
   CheckCircle2, 
-  Clock, 
   Flame,
   Target,
   Zap,
@@ -45,19 +44,6 @@ function AnalyticsComponent() {
   }, [todos]);
 
   const maxCompleted = Math.max(...weeklyData.map(d => d.completed), 1);
-
-  // Calculate category distribution
-  const categoryDistribution = useMemo(() => {
-    const distribution: Record<string, number> = {};
-    
-    todos.forEach(todo => {
-      if (todo.category && todo.status !== 'archived') {
-        distribution[todo.category] = (distribution[todo.category] || 0) + 1;
-      }
-    });
-    
-    return distribution;
-  }, [todos]);
 
   // Calculate priority distribution
   const priorityDistribution = useMemo(() => {

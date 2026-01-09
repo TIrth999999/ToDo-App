@@ -35,7 +35,7 @@ export function usePomodoro(settings: AppSettings): UsePomodoroReturn {
   const [isPaused, setIsPaused] = useState(false);
   const [currentTodoId, setCurrentTodoId] = useState<string | null>(null);
   
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const sessionStartRef = useRef<Date | null>(null);
 
   const getTotalTime = useCallback((phase: PomodoroPhase): number => {
