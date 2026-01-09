@@ -10,7 +10,7 @@ import {
 import { TodoItem } from './TodoItem';
 import { useApp } from '../context/AppContext';
 import { useTodos } from '../hooks';
-import type { SortOption, Todo } from '../types';
+import type { SortOption } from '../types';
 
 interface ListViewProps {
   onStartPomodoro: (todoId: string) => void;
@@ -31,7 +31,6 @@ function ListViewComponent({ onStartPomodoro }: ListViewProps) {
   const { 
     getFilteredTodos, 
     getSortedTodos, 
-    reorderTodos,
     bulkComplete,
     bulkDelete,
     bulkArchive,
